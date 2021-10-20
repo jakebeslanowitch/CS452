@@ -15,9 +15,10 @@ struct tsb_list {
     pthread_cond_t listNotEmpty;
 };
 
-struct tsb_list * tsb_createList(int (*equals)(const void *, const void *), char * (*toString)(const void *),
-                   void (*freeObject)(void *),
-				   int capacity) {
+struct tsb_list * tsb_createList(int (*equals)(const void *, const void *), 
+                    char * (*toString)(const void *),
+                    void (*freeObject)(void *),
+				    int capacity) {
                        struct tsb_list *tsl;
                        tsl = malloc(sizeof(struct tsb_list));
                        (*tsl).list = createList(equals, toString, freeObject);
@@ -212,6 +213,7 @@ NodePtr tsb_removeNode(struct tsb_list * list, NodePtr node) {
     return node;
 }
 
+// non needed function, implemented for my sake but commented out
 /**
  * Searches the list for a node with the given key and returns the pointer to the
  * found node.
@@ -221,14 +223,14 @@ NodePtr tsb_removeNode(struct tsb_list * list, NodePtr node) {
  * @return a pointer to the node that was found. Or <code>NULL</code> if a node 
  * with the given key is not found or the list is <code>NULL</code> or empty.
  */
-NodePtr tsb_search(struct tsb_list * list, const void *obj) {
-    NodePtr node;
-    pthread_mutex_lock(&(*list).mutex);
-    node = search((*list).list, node);
-    //pthread_cond_signal(&(*list).listNotEmpty);
-    pthread_mutex_unlock(&(*list).mutex);
-    return node;
-}
+// NodePtr tsb_search(struct tsb_list * list, const void *obj) {
+//     NodePtr node = NULL;
+//     pthread_mutex_lock(&(*list).mutex);
+//     node = search((*list).list, node);
+//     pthread_cond_signal(&(*list).listNotEmpty);
+//     pthread_mutex_unlock(&(*list).mutex);
+//     return node;
+// }
 
 /**
  * Reverses the order of the given list.
