@@ -19,14 +19,14 @@ However, if a device tries to write to /dev/booga3, it should be terminated.
 
 ## Manifest
 
-booga_load - Loads the booga device driver
-booga_unload - Unloads the booga device driver
-booga.c - main driver class for this program
-booga.h - header file for booga.c
-MakeFile - Builds the project
-booga-test1.sh - Tests booga drivers
-booga-test2.sh - Tests booga drivers
-test-booga.c - Tests booga drivers
+- booga_load - Loads the booga device driver
+- booga_unload - Unloads the booga device driver
+- booga.c - main driver class for this program
+- booga.h - header file for booga.c
+- MakeFile - Builds the project
+- booga-test1.sh - Tests booga drivers
+- booga-test2.sh - Tests booga drivers
+- test-booga.c - Tests booga drivers
 
 ## Building the project
 
