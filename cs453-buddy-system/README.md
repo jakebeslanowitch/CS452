@@ -5,6 +5,7 @@
 
 ## Overview
 
+Within this program, I implemented our own memory management. More specifically, I replaced malloc/free with my own memory management scheme based on the Buddy system discussed in class.
 
 ## Manifest
 
