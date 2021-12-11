@@ -84,6 +84,7 @@ void maxAllocationTest(void)
 
 int main(int argc, char *argv[])
 {
+	
 	if (argc < 2) {
 		fprintf(stderr, "Usage: %s {silent|terse|verbose|interactive}\n", argv[0]);
 		exit(1);
@@ -103,7 +104,7 @@ int main(int argc, char *argv[])
 
 	buddy_init(0);	
 	if (verbosity > 0) {
-		printf("Buddy system initialized.\n");
+		printf("Buddy system initialized.jake\n");
 	}
 	if (verbosity > 1) {
 		printf("Buddy system lists after initialization.\n");

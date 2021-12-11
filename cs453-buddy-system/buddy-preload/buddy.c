@@ -35,7 +35,7 @@ void merge(struct block_header *block);
 /* default memory allocation is 512MB */
 const size_t DEFAULT_MAX_MEM_SIZE = 512*1024*1024;
 
-// Log function created
+
 short Log2l(size_t n) {
     return (n > 1) ? 1 + Log2l(n / 2) : 0;
 }
@@ -137,7 +137,7 @@ void *malloc(size_t size) {
 			(block->next)->prev=block->prev;
 			pool.avail[j]=block->prev;
 		}
-		// removes the node
+
 		j--;
 		struct block_header* buddy = (struct block_header*) block + (1<<j);
 		buddy->tag = block->tag=FREE;
@@ -167,7 +167,7 @@ void *malloc(size_t size) {
 	// reset our next and prev block pointers
 	block->prev=block->next=block;
 
-	return (void*)((char*)block+sizeof(struct block_header));
+	return (void*)block+sizeof(struct block_header);
 }
 
 /**
@@ -211,8 +211,6 @@ void free(void *ptr) {
 	}
 
 	struct block_header *block = (struct block_header *)((char*) ptr-sizeof(struct block_header));
-	
-	// merge the block into 
 	merge(block);
 	
 	block->tag=FREE;
